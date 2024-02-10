@@ -1,0 +1,35 @@
+.loader_container_button{
+    position:absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    visibility: hidden;
+}
+.loader_container_button.loading{
+    visibility: visible;
+}
+
+.is_loading_page_button:before,
+.is_loading_page_button:after{
+  content: '';
+  position: absolute;
+  top: 25%; left: 45%;
+}
+
+.animation_page_button:after{
+  width: 25px;
+  height: 25px;
+  border: 3px solid #fff;
+  border-radius: 50px;
+}
+
+.animation_page_button:after{
+  border-bottom-color: transparent;
+  animation: spin_button 1s infinite linear;
+}
+
+@keyframes spin_button {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}

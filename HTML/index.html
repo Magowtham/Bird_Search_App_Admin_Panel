@@ -1,69 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<title>Bootstrap Form</title>
 	<meta charset="utf-8">
-	<meta name="author" content="Kodinger">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>My Login Page</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="../CSS/my-login.css">
-</head>
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href=
+"https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="../CSS/my-login.css">
+    <link rel="stylesheet" href="../CSS/page_loader.css">
+</head> 
+<body class="main-body">
+  <nav class="nav bg-transparent navbar-expand-md  pt-3 pb-4 m-auto d-flex align-items-center justify-content-between container-fluid" >
+   <div class="logo_sec">
+    <img src="../img/logo.jpg" />
+   </div>
+   <div class="d-flex align-items-center">
+   <div class="nav_search_sec mr-3">
+    <input type="text" class="pt-1 pb-1" placeholder="search"/>
+    <button><i class="fa fa-search"></i></button>
+   </div>
+   <div class="notification mr-2">
+    <div class="notification_count"><h3>0</h3></div>
+    <button disabled><i class="fa fa-bell fa-2x"></i></button>
+   </div>
+   </div>
+  </nav>
+    <div class="bird-remove-overlay"></div>
+      <div class="loader_container" >
+        								<div class="any-element_page animation_page is_loading_page"></div>	
+										</div>
+   <div class="container admin-panel" id="bird-list-container">
+  
+</div>
+    <div class="footer  m-auto">
+      <div class="ml-auto mt-3 main-footer">
+<button class="btn btn-danger btn-lg notificationPrev" id="notificationPrevBtn" style="font-size:1rem;">Previous</button>
+   <button class="btn btn-success btn-lg ml-3" id="add-bird" style="font-size:1rem;">Add Bird</button>
+   <button class="btn btn-success btn-lg ml-3 mr-4" id="logout-btn"  style="font-size:1rem;">Logout</button>
+   </div> 
+   </div>
 
-<body class="my-login-page">
-	<section class="h-100">
-		<div class="container  h-100">
-			<div class="row justify-content-md-center h-100">
-				<div class="card-wrapper">
-					<div class="card fat">
-						<div class="card-body">
-							<h4 class="card-title text-center">LOGIN</h4>
-							<form method="POST" class="my-login-validation" novalidate="" id="login-form">
-								<div class="form-group">
-									<label for="email">E-Mail Address</label>
-									<input id="email" type="email" class="form-control" name="email" value="" required autofocus>
-									<div class="invalid-feedback">
-										Email is invalid
-									</div>
-								</div>
-
-								<div class="form-group">
-									<label for="password">Password
-										
-									</label>
-									<input id="password" type="password" class="form-control" name="password" required data-eye>
-								    <div class="invalid-feedback">
-								    	Password is required
-							    	</div>
-								</div>
-
-								<div class="form-group d-flex">
-									<div class="custom-checkbox custom-control">
-										<input type="checkbox" name="remember" id="remember" class="custom-control-input">
-										<label for="remember" class="custom-control-label">Remember Me</label>
-									</div>
-									<a href="forgot.html" class="text-success ml-auto" >
-											Forgot Password?
-										</a>
-								</div>
-
-								<div class="form-group m-0">
-									<button type="submit" class="btn btn-success btn-block">
-										Login
-									</button>
-								</div>
-							</form>
-						</div>
-					</div>
-	
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	<script src="../JS/index.js"></script>
-
+   <!-- <script>
+    const commonName="parrot"
+    document.querySelector("button").addEventListener("click",()=>{
+        window.location.href=`forgot.html?data=${commonName}`
+    }) 
+   </script> -->
+<!-- <div class="form-group admin-panel-remove-bird">
+<div class="card w-100 d-flex flex-column justify-content-sm-between position-relative p-4">
+    <div class="card-title d-flex justify-content-center position-relative "  >
+        <h5 class="">Remove Bird</h5>
+        <button type="button" class="close position-absolute" style="right: 2%;" data-dismiss="modal" aria-label="Close" >
+          <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="card-text">
+            <h5>Type the here:</h5>
+            <input type="text" id="commonName">
+        </div>
+        <button class="btn btn-danger w-30 btn-sm" style="align-self: flex-end;">Remove</button>
+</div>
+</div> -->
+<div class="remove-bird-popup">
+  <div class="modal-dialog w-auto" >
+    <div class="modal-content p-2">
+      <div class="modal-header">
+        <h5 class="modal-title" id="removeModalLabel">Remove Bird</h5>
+      </div>
+      <div class="modal-body ">
+        <form>
+          <div class="mb-3">
+            <label for="commonName" class="col-form-label" id="remove-bird-label"></label>
+            <input type="text" class="form-control" id="remove-bird-common-name">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="remove-bird-close-btn">Close</button>
+        <button type="button" class="btn btn-danger position-relative" disabled id="bird-final-remove-btn">
+          Remove
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+	<script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+	</script>
+	<script src=
+"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+	</script>
+	<script src=
+"https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+	</script>
+   <script src="../JS/index.js"></script>
 </body>
-</html>
+</html> 

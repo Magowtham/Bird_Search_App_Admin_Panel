@@ -1,12 +1,70 @@
+*{
+	box-sizing: border-box;
+}
 html,body {
 	height: 100%;
 }
+
+
 
 body.my-login-page {
 	background-color: #f7f9fb;
 	font-size: 14px;
 }
 
+.logo_sec{
+	width: 100px;
+}
+
+.logo_sec img{
+	width: 100%;
+	height: 100%;
+}
+.nav_search_sec{
+	width: fit-content;
+	height: fit-content;
+	display: flex;
+}
+.nav_search_sec input{
+	border-radius: 4px 0px 0px 4px;
+	border-right:0 ;
+	outline: none;
+}
+.nav_search_sec button{
+	border-radius: 0px 4px 4px 0px;
+	border-left: 0;
+}
+.notification{
+	/* border: 2px solid green; */
+	position: relative;
+	display: none;
+}
+
+.notification.root_user{
+	display: block;
+}
+.notification div{
+	background-color: green;
+	width: 20px;
+	height: 20px;
+	padding: 2px;
+	border-radius: 50%;
+	text-align: center;
+}
+.notification div{
+	position: absolute;
+	top: -10%;
+	right: 0;
+	color: #ffff;
+}
+.notification div h3{
+	font-size: 0.8rem;
+}
+.notification button{
+	background: none;
+	border: 0;
+	outline: none;
+}
 .my-login-page .brand {
 	width: 90px;
 	height: 90px;
@@ -106,58 +164,187 @@ body.my-login-page {
 
 /* bird beak option css  */
 
-.beak_option_container{
+.option_container{
 	display: grid;
-	grid-template-columns: repeat(auto-fill,minmax(120px,1fr));
+	grid-template-columns: repeat(auto-fill,minmax(125px,1fr));
 	gap: 25px;
 }
 
-.beak_option_card{
+.option_card{
 	border-radius: 4px;
 	box-shadow: 0.2px 0.5px 2px 3px rgba(177, 177, 177, 0.549);
 	cursor: pointer;
+	padding: 3px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	position: relative;
 }
-.beak_option_card h2{
+.option_card h2{
 	font-size: 1.1rem;
-	margin-left: 10%;
-	margin-top: 2%;
+	text-align: center;
 }
 
-.beak_option_card img{
+.option_card img{
 	width: 100%;
 	border-radius: 4px 4px 0px 0px ;
 }
 
-/* bird foot option css */
 
-.foot_option_container{
-	display: grid;
-	grid-template-columns: repeat(auto-fill,minmax(120px,1fr));
-	gap: 25px;
-}
-
-.foot_option_card{
-	border-radius: 4px;
-	box-shadow: 0.2px 0.5px 2px 3px rgba(177, 177, 177, 0.549);
-	cursor: pointer;
-}
-.foot_option_card h2{
-	font-size: 1.1rem;
-	margin-left: 10%;
-	margin-top: 2%;
-}
-
-.foot_option_card img{
+.option_selector{
+	background-color:none;
+	position: absolute;
 	width: 100%;
-	border-radius: 4px 4px 0px 0px ;
+	height: 100%;
+	top: 0;
+	left: 0;
+	border-radius: 4px;
+	border: 0;
 }
 
-.beak-card-selected{
-	border: 6px solid #28a745;
-	box-shadow: none;
+.option_selector.foot_selected,.option_selector.beak_selected{
+	border: 3px solid green;
+	transition: border ease-out 0.1ms;
 }
 
-.foot-card-selected{
-	border: 6px solid #28a745;
-	box-shadow: none;
+.admin-panel{
+	height: 75vh;
+	overflow-y: scroll;
+	position: relative;
+}
+.admin-panel::-webkit-scrollbar{
+	width: 0;
+}
+
+.admin-panel .card{
+	border:2px solid #000000;	
+}
+
+.admin-panel-remove-bird{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translateX(-50%) translateY(-50%);
+}
+
+.remove-bird-popup{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	visibility: hidden;
+	z-index: 2;
+	min-width: 350px;
+}
+
+.remove-bird-popup.show{
+visibility: visible;
+}
+
+.reject-popup{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+}
+.reject-popup textarea{
+	border: 1px solid black;
+}
+
+.bird-remove-overlay{
+	background: #000000;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	opacity: 0.7;
+}
+.bird-remove-overlay{
+	width: 100vw;
+	height:100%;
+	visibility:hidden ;
+}
+
+.bird-remove-overlay.show{
+	visibility: visible;
+}
+
+
+.notificationPrev{
+	display: none;
+}
+
+.notificationPrev.visible{
+	display: block;
+}
+
+/* hiding css for the image tag in priview mode */
+.hide{
+	display: none;
+}
+
+.footer{
+	width: 75%;
+}
+.main-footer{
+	width: fit-content;
+}
+
+@media (max-width: 768px){
+	#bird-list-container{
+		padding: 0%;
+		margin:0% ;
+		max-width: 100%;
+	}
+	#bird-list-container .card-body{
+		justify-content:initial;
+	}
+	
+#bird-list-container .card-body  .Cname{
+	overflow-wrap: break-word;
+	width: 200px;
+}
+}
+
+@media (max-width: 999px){
+	#bird-list-container .card-body  .Kname{
+		display: none;
+	}
+}
+
+@media (max-width: 510px){
+	.container-fluid{
+	width: initial;
+	}
+	.nav_search_sec{
+		display: none;
+	}
+	.remove-bird-btn{
+		display: none;
+	}
+	.footer{
+		width: 100%;
+	}
+		.main-footer{
+		width:100%;
+		display: flex;
+		justify-content: space-between;
+	}
+}
+
+@media (min-width: 768px){
+.container-fluid{
+	width: 75%;
+	}
+}
+
+@media(max-width: 375px){
+		#bird-list-container .card-body  .Cname{
+	overflow-wrap: break-word;
+	width: 100px;
+}
+}
+
+.hidden{
+	visibility: hidden;
 }
